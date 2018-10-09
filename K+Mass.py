@@ -46,6 +46,12 @@ def energy(momentum):
     return E
 
 def K_table():
+    """ uNum is a class that takes an number and an uncertainty. Haven't got it to work with the math class yet
+        so therefore it cannot be used with external methods like math.sin(). these are implemented within uNum
+        so use uNum.sin() etc... To create a uNum, write uNum(number, uncertainty).  you can play around with 
+        the K+ mass program- it outputs a text file in csv format which has a table of values like in the lab book.
+        Also note that it prints the mass to command line
+    """
     pion1 = tableLine(uNum(10e-2, 1e-3), uNum(7e-3, 1e-3), uNum(98, 2))
     pion2 = tableLine(uNum(10e-2, 1e-3), uNum(4.7e-3, 1e-3), uNum(-12, 2))
     pion3 = tableLine(uNum(10e-2, 1e-3), uNum(15.5e-3, 1e-3), uNum(-125, 2))
@@ -68,6 +74,7 @@ def K_table():
     print('{} {} {}'.format(pxTotal.num, pm, pxTotal.uncertainty))
     print('{} {} {}'.format(ETotal.num, pm, ETotal.uncertainty))
     mass = (ETotal ** uNum(2, 0) - pxTotal ** uNum(2, 0)).sqrt()
+    print('MASS OF K+:')
     print('{} {} {}'.format(mass.num, pm, mass.uncertainty))
 
 def radiusChangeGraph():
